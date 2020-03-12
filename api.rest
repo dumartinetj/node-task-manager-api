@@ -1,0 +1,102 @@
+@apiUrl = http://localhost:3000
+@authToken = foobar
+
+
+#################################
+// •••••• USERS ENDPOINTS •••••••
+#################################
+
+POST {{apiUrl}}/users/login
+content-type: application/json
+
+{
+    "email": "foo@bar.io",
+    "password": "Foobar123"
+}
+
+#################################
+
+POST {{apiUrl}}/users/logout
+Authorization: Bearer {{authToken}}
+
+#################################
+
+POST {{apiUrl}}/users/logoutAll
+Authorization: Bearer {{authToken}}
+
+#################################
+
+GET {{apiUrl}}/users/me
+Authorization: Bearer {{authToken}}
+
+#################################
+
+POST {{apiUrl}}/users
+content-type: application/json
+
+{
+    "firstname": "Foo",
+    "lastname": "Bar",
+    "email": "foo@bar.io",
+    "password": "Foobar123",
+    "age": 24
+}
+
+#################################
+
+PATCH {{apiUrl}}/users/me
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+    "firstname": "Foo",
+    "lastname": "Bar",
+    "email": "foo@bar.io",
+    "password": "Foobar123",
+    "age": 24
+}
+
+#################################
+
+DELETE {{apiUrl}}/users/me
+Authorization: Bearer {{authToken}}
+
+
+
+#################################
+// •••••• TASKS ENDPOINTS •••••••
+#################################
+
+GET {{apiUrl}}/tasks
+Authorization: Bearer {{authToken}}
+
+#################################
+
+GET {{apiUrl}}/tasks/5e6273ea583ee273c0b08f2e
+Authorization: Bearer {{authToken}}
+
+#################################
+
+POST {{apiUrl}}/tasks
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+    "description": "Make some coffee"
+}
+
+#################################
+
+PATCH {{apiUrl}}/tasks/5e6273ea583ee273c0b08f2e
+Authorization: Bearer {{authToken}}
+content-type: application/json
+
+{
+    "description": "Make more coffee",
+    "completed": false
+}
+
+#################################
+
+DELETE {{apiUrl}}/tasks/5e638173617c4a99910a6ca5
+Authorization: Bearer {{authToken}}
